@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1517D16C281F70D70039CD36 /* Ingredient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1517D16B281F70D60039CD36 /* Ingredient.swift */; };
+		1535FA4928200DF400308BF5 /* GroupSaveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1535FA4828200DF400308BF5 /* GroupSaveView.swift */; };
 		15508E32281F743C00EDEB10 /* GroupSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15508E31281F743C00EDEB10 /* GroupSectionView.swift */; };
 		1565C9A8280939CA00C11643 /* CubaDemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1565C9A7280939CA00C11643 /* CubaDemoApp.swift */; };
 		1565C9AA280939CA00C11643 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1565C9A9280939CA00C11643 /* ContentView.swift */; };
@@ -56,6 +57,7 @@
 
 /* Begin PBXFileReference section */
 		1517D16B281F70D60039CD36 /* Ingredient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ingredient.swift; sourceTree = "<group>"; };
+		1535FA4828200DF400308BF5 /* GroupSaveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupSaveView.swift; sourceTree = "<group>"; };
 		15508E31281F743C00EDEB10 /* GroupSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupSectionView.swift; sourceTree = "<group>"; };
 		1565C9A4280939CA00C11643 /* CubaDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CubaDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1565C9A7280939CA00C11643 /* CubaDemoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CubaDemoApp.swift; sourceTree = "<group>"; };
@@ -193,6 +195,7 @@
 			children = (
 				15A2E4F42818964B00830DF9 /* GroupModel.xcdatamodeld */,
 				1565C9E328093B0500C11643 /* IngredientView.swift */,
+				1535FA4828200DF400308BF5 /* GroupSaveView.swift */,
 				15E40F68281D6135004C8AE4 /* GroupManager.swift */,
 				1517D16B281F70D60039CD36 /* Ingredient.swift */,
 				15508E31281F743C00EDEB10 /* GroupSectionView.swift */,
@@ -355,6 +358,7 @@
 				15FF3D3A281766DC00760477 /* MyTabView.swift in Sources */,
 				1565C9E428093B0500C11643 /* IngredientView.swift in Sources */,
 				15C08A42281375820013A1AF /* Menu.swift in Sources */,
+				1535FA4928200DF400308BF5 /* GroupSaveView.swift in Sources */,
 				1565C9EC28093BBC00C11643 /* WriteRecipeView.swift in Sources */,
 				15508E32281F743C00EDEB10 /* GroupSectionView.swift in Sources */,
 				15A2E4F62818964B00830DF9 /* GroupModel.xcdatamodeld in Sources */,

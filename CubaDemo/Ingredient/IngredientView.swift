@@ -36,19 +36,26 @@ struct IngredientView: View {
         ]
     }
     
+    @State var isShown: Bool = false
+    
     var body: some View {
         
-        
-        VStack(alignment: .leading) {
-            List {
-                sectionView
-            }
+        ZStack {
             
-            Button {
+            VStack() {
+                Button {
+                    isShown.toggle()
+                    print("IngredientView : Toggling")
+                } label: {
+                    Image(systemName: "plus")
+                }.frame(width: 50, height: 50)
                 
-            } label: {
-                Image(systemName: "plus")
-            }
+                List {
+                    sectionView
+                }
+            }.opacity(isShown ? 0.3 : 1)
+            
+            GroupSaveView(isShown: $isShown)
         }
         
     }
