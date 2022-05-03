@@ -43,6 +43,7 @@ struct IngredientView: View {
         ZStack {
             
             VStack() {
+                
                 Button {
                     isShown.toggle()
                     print("IngredientView : Toggling")
@@ -53,7 +54,8 @@ struct IngredientView: View {
                 List {
                     sectionView
                 }
-            }.opacity(isShown ? 0.3 : 1)
+            }.allowsHitTesting(!isShown)
+                .opacity(isShown ? 0.4 : 1)
             
             GroupSaveView(isShown: $isShown)
         }
