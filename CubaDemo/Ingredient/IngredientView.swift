@@ -42,22 +42,31 @@ struct IngredientView: View {
         
         ZStack {
             
-            VStack() {
-                
-                Button {
-                    isShown.toggle()
-                    print("IngredientView : Toggling")
-                } label: {
-                    Image(systemName: "plus")
-                }.frame(width: 50, height: 50)
-                
+            VStack {
                 List {
                     sectionView
                 }
+                
+                Button {
+                    isShown.toggle()
+                } label: {
+                    Text("**그룹 추가**")
+                        .foregroundColor(.white)
+                        .frame(width: UIScreen.main.bounds.width - 30, height: 40)
+                        .background(Color.velogGreen)
+                        .cornerRadius(10)
+                        
+                }
+                
+                Spacer(minLength: 10)
             }.allowsHitTesting(!isShown)
-                .opacity(isShown ? 0.4 : 1)
+                .opacity(isShown ? 0.35 : 1)
             
             GroupSaveView(isShown: $isShown)
+            
+            
+      
+
         }
         
     }

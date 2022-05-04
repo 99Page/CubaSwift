@@ -33,7 +33,7 @@ struct MyTabView: View {
                     Image(systemName: "plus.app")
                     Text("Recipe")
                 }
-        }
+        }.accentColor(.velogGreen)
     }
 }
 
