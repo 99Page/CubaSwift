@@ -32,52 +32,66 @@ struct IngredientView: View {
     
     var columns: [GridItem] {
         [
-            GridItem(.adaptive(minimum: 80, maximum: 500))
+            GridItem(.flexible()),
+            GridItem(.flexible()),
+            GridItem(.flexible())
         ]
     }
-    
+
     @State var isShown: Bool = false
     
     var body: some View {
         
         ZStack {
             
-            VStack {
-                List {
-                    sectionView
-                }
+            VStack(alignment: .leading, spacing: 20) {
                 
-                Button {
-                    isShown.toggle()
-                } label: {
-                    Text("**그룹 추가**")
-                        .foregroundColor(.white)
-                        .frame(width: UIScreen.main.bounds.width - 30, height: 40)
-                        .background(Color.velogGreen)
-                        .cornerRadius(10)
-                        
-                }
+                ForEach(groupKey, id: \.self) { key in
+                    GroupBox(label: Text(key)) {
+                        LazyVGrid(columns: columns, spacing: 10) {
+                            ForEach(igdGrouped[key]!) {
+                                Text("\($0.name)")
+                            }
+                            Button {
+                                
+                            } label: {
+                                Image(systemName: "plus")
+                            }
+
+                        }
+                    }
+                }.cornerRadius(20)
                 
+                groupSaveButton
                 Spacer(minLength: 10)
+                
             }.allowsHitTesting(!isShown)
                 .opacity(isShown ? 0.35 : 1)
             
             GroupSaveView(isShown: $isShown)
-            
-            
-      
-
-        }
+        }.padding()
         
+    }
+    
+    var groupSaveButton: some View {
+        Button {
+            isShown.toggle()
+        } label: {
+            Image(systemName: "plus")
+                .foregroundColor(.white)
+                .frame(width: UIScreen.main.bounds.width * 0.1, height: 40)
+                .background(Color.velogGreen)
+                .cornerRadius(10)
+                
+        }.padding(5)
     }
     
     var sectionView: some View {
         ForEach(groupKey, id: \.self) { key in
-            Section(header: Text("\(key)")) {
-                LazyVGrid(columns: columns) {
-                    ForEach(igdGrouped[key]!) {
-                        Text("\($0.name)")
-                    }
+            Section(header: Text("\(key)")
+                .bold()) {
+                ForEach(igdGrouped[key]!) {
+                    Text("\($0.name)")
                 }
             }
         }
