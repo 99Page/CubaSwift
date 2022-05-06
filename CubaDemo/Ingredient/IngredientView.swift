@@ -20,7 +20,7 @@ struct IngredientView: View {
         Dictionary(grouping: ingredientLst) { $0.group }
     }
     
-    var ingredientLst = [
+    @State var ingredientLst = [
         Ingredient(group: "주재료", name: "삼겹살", isRemain: true),
         Ingredient(group: "주재료", name: "스파게티면", isRemain: true),
         Ingredient(group: "주재료", name: "콩나물", isRemain: true),
@@ -44,30 +44,30 @@ struct IngredientView: View {
         
         ZStack {
             
-            VStack(alignment: .leading, spacing: 20) {
+//            List {
+//                sectionView
+//                groupSaveButton
+//            }.allowsHitTesting(!isShown)
+//                .opacity(isShown ? 0.35 : 1)
+//                .cornerRadius(15)
                 
-                ForEach(groupKey, id: \.self) { key in
-                    GroupBox(label: Text(key)) {
-                        LazyVGrid(columns: columns, spacing: 10) {
-                            ForEach(igdGrouped[key]!) {
-                                Text("\($0.name)")
-                            }
-                            Button {
-                                
-                            } label: {
-                                Image(systemName: "plus")
-                            }
-
-                        }
-                    }
-                }.cornerRadius(20)
-                
-                groupSaveButton
-                Spacer(minLength: 10)
-                
-            }.allowsHitTesting(!isShown)
-                .opacity(isShown ? 0.35 : 1)
+            List {
+                sectionView
+            }
             
+            VStack(alignment: .trailing) {
+                Spacer()
+                HStack {
+                    Spacer()
+                    Image(systemName: "plus")
+                        .frame(width: 60, height: 60)
+                        .background(Color.velogGreen)
+                        .foregroundColor(.white)
+                        .clipShape(Circle())
+                }
+                .padding(.trailing)
+            }
+            .frame(width: UIScreen.main.bounds.width)
             GroupSaveView(isShown: $isShown)
         }.padding()
         
@@ -88,10 +88,18 @@ struct IngredientView: View {
     
     var sectionView: some View {
         ForEach(groupKey, id: \.self) { key in
-            Section(header: Text("\(key)")
-                .bold()) {
-                ForEach(igdGrouped[key]!) {
-                    Text("\($0.name)")
+            Section(header: Text("\(key)")) {
+                LazyVGrid(columns: columns, spacing: 10) {
+                    ForEach(ingredientLst) { ingredient in
+                        Text(ingredient.name)
+                            .foregroundColor(ingredient.isRemain ? Color.black : Color.gray)
+                    }
+                    Button {
+                        
+                    } label: {
+                        Image(systemName: "plus")
+                    }
+
                 }
             }
         }
